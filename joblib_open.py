@@ -32,6 +32,8 @@ text = stemming(text)
 def load_model(input):
     loaded_best_model = load('best_model.joblib')
     prediction = loaded_best_model.predict(pd.Series(input))
+    with open("input_text.txt", "w" ,encoding = "utf-8") as f:
+        f.write("")
     return prediction
 
 prediction = load_model(text)
