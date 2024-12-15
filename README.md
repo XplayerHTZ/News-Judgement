@@ -1,6 +1,6 @@
-# scikit-learn构建真假新闻判断模型
+# scikit-learn构建英文新闻真假判断模型
 
-## 基本
+## 基本信息
 数据集由 `nop.ai` 公司创建，包含 6335 条新闻及其标题，并有真假标签，其中假新闻有 3164 条，真新闻 3171 条，数据详情见 news.csv 文件。
 
 ![image.png](image.png)
@@ -13,7 +13,8 @@
 
 为了提高模型准确度，使用了scikit-learn提供的**网格搜索交叉验证方法（GridSearchCV）** 来寻找最佳参数搭配。
 
-
+## 部署
+一个简单实例已通过Streamlit部署于[text](https://news-judgement.streamlit.app/)
 
 ## [技术](techniques.md)
 
