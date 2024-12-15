@@ -25,16 +25,13 @@ if submit:
         combined_text = label + " " + text
         with open("input_text.txt", "w" ,encoding = "utf-8") as f:
             f.write(combined_text)
+        text = joblib_open.read_text()
+        text = joblib_open.stemming(text)
+        prediction = joblib_open.load_model(text)
+        if prediction == 1:
+            prediction = "Real"
+        else:
+            prediction = "Fake"
+        st.write("The prediction is: ", prediction)
     else:
         st.warning("Please input the valid label and text")
-
-text = joblib_open.read_text()
-text = joblib_open.stemming(text)
-prediction = joblib_open.load_model(text)
-
-if prediction == 1:
-    prediction = "Real"
-else:
-    prediction = "Fake"
-
-st.write("The prediction is: ", prediction)
