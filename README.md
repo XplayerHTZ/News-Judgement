@@ -1,33 +1,56 @@
-# scikit-learn构建英文新闻真假判断模型
+# README.md
 
-## 基本信息
-数据集由 `nop.ai` 公司创建，包含 6335 条新闻及其标题，并有真假标签，其中假新闻有 3164 条，真新闻 3171 条，数据详情见 news.csv 文件。
+# Streamlit News Judgement Demo
 
-![image.png](image.png)
+这是一个简单的Streamlit应用程序，用于文本输入和新闻真实性判断。
 
-给出的数据集中包含新闻的标题（title）、正文（text）以及真假判断的标签（label）。使用朴素贝叶斯算法，基于给出的数据集构建真假新闻判断模型。朴素贝叶斯算法是一种基于贝叶斯定理的概率分类器。它假设特征之间是相互独立的，这是一个简化的假设，但在实践中通常表现良好。对于假新闻检测，可以使用多项式朴素贝叶斯模型，该模型适用于离散特征，例如词频。
+## 项目结构
 
-实践使用Python语言中的scikit-learn库创建模型，其提供了实践所需的**多项式朴素贝叶斯模型（Multinomial Naive Bayes）** 和**TF-IDF向量化器（TfidfVectorizer）** 等多项功能。
+```
+streamlit-project
+├── src
+│   └── streamlit.py      # Streamlit应用的主要代码
+├── Dockerfile             # Docker镜像构建文件
+├── requirements.txt       # 项目所需的Python依赖包
+└── README.md              # 项目的文档和使用说明
+```
 
-文本处理方面，使用**NLTK（Natural Language Toolkit）** 提供的**PorterStemmer**，可以减少单词的变体，将其转换为词干形式，例如，"running"、"runs" 和 "ran" 都会被转换为词干 "run"。这样做有助于减少特征空间的维度，并提高模型的泛化能力。此外，还使用了**正则表达式**帮助进行文本处理。
+## 安装依赖
 
-为了提高模型准确度，使用了scikit-learn提供的**网格搜索交叉验证方法（GridSearchCV）** 来寻找最佳参数搭配。
+在项目根目录下，使用以下命令安装所需的依赖包：
 
-## 部署
-一个简单实例已通过Streamlit部署于[text](https://news-judgement.streamlit.app/)
+```
+pip install -r requirements.txt
+```
 
-## [技术](techniques.md)
+## 运行应用
 
-## 相关文档与教程
+要运行Streamlit应用，请使用以下命令：
 
-[scikit-learn : Naive Bayes](https://scikit-learn.org/1.5/modules/naive_bayes.html#multinomial-naive-bayes)
+```
+streamlit run src/streamlit.py
+```
 
-[scikit-learn : GridSearchCV](https://scikit-learn.org/dev/modules/generated/sklearn.model_selection.GridSearchCV.html)
+## Docker支持
 
-[scikit-learn : TfidfVectorizer](https://scikit-learn.org/1.5/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
+该项目包含一个Dockerfile，可以通过Docker构建和运行应用。使用以下命令构建Docker镜像：
 
-[scikit-learn : Pipeline](https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html)
+```
+docker build -t streamlit-news-judgement .
+```
 
-[Python 正则表达式 | 菜鸟教程](https://www.runoob.com/python/python-reg-expressions.html)
+然后使用以下命令运行Docker容器：
 
-[NLTK : Sample usage for stem](https://www.nltk.org/howto/stem.html)
+```
+docker run -p 8501:8501 streamlit-news-judgement
+```
+
+在浏览器中访问 `http://localhost:8501` 以查看应用。
+
+## 贡献
+
+欢迎任何形式的贡献！请提交问题或拉取请求。
+
+## 许可证
+
+此项目采用MIT许可证。
