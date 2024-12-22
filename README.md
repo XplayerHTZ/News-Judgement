@@ -1,5 +1,3 @@
-# README.md
-
 # Streamlit News Judgement Demo
 
 这是一个简单的Streamlit应用程序，用于文本输入和新闻真实性判断。
