@@ -14,9 +14,12 @@
 为了提高模型准确度，使用了scikit-learn提供的**网格搜索交叉验证方法（GridSearchCV）** 来寻找最佳参数搭配。
 
 ## 部署
-一个简单实例已通过Streamlit部署于[text](https://news-judgement.streamlit.app/)
-
-## [技术](techniques.md)
+* 查看demo：
+一个简单实例已通过Streamlit部署于[Streamlit网站](https://news-judgement.streamlit.app/)
+* 本地运行：
+确保已安装streamlit环境
+`streamlit run src/streamlit_app.py`
+## [技术](/docs/techniques.md)
 
 ## 相关文档与教程
 

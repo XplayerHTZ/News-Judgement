@@ -6,10 +6,15 @@ import pandas as pd # Pandas数据处理
 from nltk.stem.porter import PorterStemmer # 词干提取器
 import re # 正则表达式
 from sklearn.metrics import accuracy_score # 准确率
+import os # 操作系统
 
-# 读取文件
+current_path = os.path.dirname(__file__)
+target_path_txt = os.path.join(current_path , '..' , 'data', 'input_text.txt') # input_text路径
+target_path_model = os.path.join(current_path , '..' , 'models', 'best_model.joblib') # 模型路径
+
+# 读取input_text
 def read_text():
-    with open('input_text.txt', 'r' , encoding = "utf-8") as f:
+    with open(target_path_txt , 'r' , encoding = "utf-8") as f:
         text = f.read()
     return text
 
@@ -30,9 +35,9 @@ text = stemming(text)
 
 # 加载并使用模型
 def load_model(input):
-    loaded_best_model = load('best_model.joblib')
+    loaded_best_model = load(target_path_model) # 加载模型
     prediction = loaded_best_model.predict(pd.Series(input))
-    with open("input_text.txt", "w" ,encoding = "utf-8") as f:
+    with open(target_path_txt, "w" ,encoding = "utf-8") as f:
         f.write("")
     return prediction
 
