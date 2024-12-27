@@ -16,7 +16,9 @@
 
 ## 模型建立过程
 在此之前，使用多项式朴素贝叶斯分类直接建立模型的过程位于 `./notebooks/MultinomialNB.ipynb` 中，分类报告如下：
+
 ![multinomialnb_report.png](docs/multinomialnb_report.png)
+
 准确率较低，为提高准确率，使用参数网格交叉验证方法优化参数。模型建立过程位于 `./notebooks/GridSearchCV_Best_Model.ipynb` 中：
 
 1. **数据导入与读取**  
@@ -46,6 +48,7 @@
    - 在测试集上进行预测，计算并输出准确率、精确率、召回率、F1分数等指标。
 
    ![step5.png](docs/step5.png)
+   
    经过优化，准确率得到显著提升。
 
 6. **模型保存**  
